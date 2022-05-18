@@ -1,12 +1,12 @@
 import { Dispatch } from "redux";
 import { FilmAction, FilmActionTypes } from "../../types/Film";
-import { popularFilms } from "../../api/api";
+import { filmApi } from "../../api/api";
 
 export const apiFilms = () => {
   return async (dispatch: Dispatch<FilmAction>) => {
     try {
       dispatch({ type: FilmActionTypes.API_FILMS });
-      const response = await popularFilms();
+      const response = await filmApi.popularFilms();
 
       dispatch({
         type: FilmActionTypes.API_FILMS_SUCCESS,

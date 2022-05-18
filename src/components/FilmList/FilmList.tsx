@@ -3,7 +3,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
 import s from "./MovieList.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { addFilms } from "../../api/api";
+import { filmApi } from "../../api/api";
 
 const FilmList: React.FC = () => {
   const { films, error, loading } = useTypedSelector((state) => state.film);
@@ -19,7 +19,7 @@ const FilmList: React.FC = () => {
   }, []);
 
   const fetchData = async () => {
-    const receivedFilms = await addFilms(page);
+    const receivedFilms = await filmApi.addFilms(page);
 
     setFilms(receivedFilms.results);
     if (receivedFilms.length === 0 || receivedFilms.length < 10) {
