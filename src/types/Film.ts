@@ -8,10 +8,16 @@ export enum FilmActionTypes {
   API_FILMS = "API_FILMS",
   API_FILMS_SUCCESS = "API_FILMS_SUCCESS",
   API_FILMS_ERROR = "API_FILMS_ERROR",
+  SET_FILMS = "SET_FILMS",
 }
 
 interface ApiFilmAction {
   type: FilmActionTypes.API_FILMS;
+}
+
+interface SetFilmAction {
+  type: FilmActionTypes.SET_FILMS;
+  payload: any[];
 }
 
 interface ApiFilmSuccessAction {
@@ -27,4 +33,5 @@ interface ApiFilmErrorAction {
 export type FilmAction =
   | ApiFilmAction
   | ApiFilmSuccessAction
-  | ApiFilmErrorAction;
+  | ApiFilmErrorAction
+  | SetFilmAction;

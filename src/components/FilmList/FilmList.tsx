@@ -3,48 +3,33 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
 import s from "./MovieList.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { addFilms } from "../../api/api";
 
 const FilmList: React.FC = () => {
   const { films, error, loading } = useTypedSelector((state) => state.film);
 
-  const [hasMore, sethasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
 
-  const [page, setpage] = useState(2);
+  const [page, setPage] = useState(2);
 
-  let F = films;
-
-  console.log("FILMS", F.length);
-
-  const { apiFilms } = useActions();
+  const { apiFilms, setFilms } = useActions();
 
   useEffect(() => {
     apiFilms();
   }, []);
 
-  const fetchFilms = async () => {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=bb61dc25dd053645f0c0e694cadfcc24&page=${page}`
-      // For json server use url below
-      // `http://localhost:3004/comments?_page=${page}&_limit=20`
-    );
-    const data = await res.json();
-    console.log("fetch", data);
-    return data;
-  };
-
   const fetchData = async () => {
-    const commentsFormServer = await fetchFilms();
-    console.log("fetchData", commentsFormServer);
+    const receivedFilms = await addFilms(page);
 
-    /* setFilms([...films, ...commentsFormServer]); */
-    if (commentsFormServer.length === 0 || commentsFormServer.length < 20) {
-      sethasMore(false);
+    setFilms(receivedFilms.results);
+    if (receivedFilms.length === 0 || receivedFilms.length < 10) {
+      setHasMore(false);
     }
-    setpage(page + 1);
+    setPage(page + 1);
   };
 
   if (loading) {
-    return <h1>Loading...1</h1>;
+    return <h1>Loading...</h1>;
   }
   if (error) {
     return <h1>{error}</h1>;
@@ -52,13 +37,13 @@ const FilmList: React.FC = () => {
 
   return (
     <InfiniteScroll
-      dataLength={films.length} //This is important field to render the next data
+      dataLength={films.length}
       next={fetchData}
       hasMore={hasMore}
-      loader={<h4>Loading...2</h4>}
+      loader={<h4>Loading...</h4>}
       endMessage={
         <p style={{ textAlign: "center" }}>
-          <b>Yay! You have seen it all</b>
+          <b>You have seen it all</b>
         </p>
       }
     >

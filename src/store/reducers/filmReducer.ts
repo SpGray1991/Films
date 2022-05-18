@@ -13,18 +13,26 @@ export const filmReducer = (
   switch (action.type) {
     case FilmActionTypes.API_FILMS:
       return { loading: true, error: null, films: [] };
+
     case FilmActionTypes.API_FILMS_SUCCESS:
       return {
         loading: false,
         error: null,
         films: action.payload,
       };
+
     case FilmActionTypes.API_FILMS_ERROR:
       return {
         loading: false,
         error: action.payload,
         films: [],
       };
+
+    case FilmActionTypes.SET_FILMS:
+      const filmsFromState = state.films;
+      filmsFromState.push(...action.payload);
+      return { ...state };
+
     default:
       return state;
   }
