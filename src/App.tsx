@@ -1,13 +1,20 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FilmList from "./components/FilmList/FilmList";
+import Header from "./components/Header/Header";
+import FilmItemPage from "./components/FilmPage/FilmItemPage";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <FilmList />
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/films/*" element={<FilmList />} />
+        <Route path={"/films/:id"} element={<FilmItemPage />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

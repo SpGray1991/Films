@@ -1,0 +1,48 @@
+.MovieCard {
+  display: flex;
+}
+
+.Btn {
+  margin-bottom: 10px;
+}
+
+.MoviePoster {
+  margin-right: 50px;
+  width: 350px;
+}
+
+.TextContent {
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+span {
+  margin-right: 10px;
+}
+
+.CardText {
+  /* margin-bottom: 30px; */
+
+  display: flex;
+  justify-content: center;
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.CardText li {
+  margin-right: 50px;
+}
+
+.Title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}

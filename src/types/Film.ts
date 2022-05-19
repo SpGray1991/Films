@@ -4,6 +4,13 @@ export interface FilmState {
   error: null | string;
 }
 
+export interface IMovie {
+  id: number;
+  title: string;
+  poster_path: string;
+  release_date: string;
+}
+
 export enum FilmActionTypes {
   API_FILMS = "API_FILMS",
   API_FILMS_SUCCESS = "API_FILMS_SUCCESS",

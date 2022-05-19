@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
-import s from "./MovieList.module.css";
+import "./FilmList.scss";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { filmApi } from "../../api/api";
+import { Link } from "react-router-dom";
 
 const FilmList: React.FC = () => {
   const { films, error, loading } = useTypedSelector((state) => state.film);
@@ -47,21 +48,47 @@ const FilmList: React.FC = () => {
         </p>
       }
     >
-      <div>
-        <ul className={s.Galery}>
-          {films &&
-            films.map(({ title, id, poster_path }) => (
-              <li key={id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                  alt={title}
-                  width="300"
-                />
-                <p>{title}</p>
-              </li>
-            ))}
-        </ul>
-      </div>
+      <main className="content">
+        <div className="container wrapper-films" id="searchMain">
+          <ul className="movie-list">
+            {films &&
+              films.map(
+                ({
+                  title,
+                  id,
+                  poster_path,
+                  genre_ids,
+                  release_date,
+                  vote_average,
+                }) => (
+                  <li className="card-film card-film_scale" key={id}>
+                    <Link
+                      to={{
+                        pathname: `/films/${id}`,
+                      }}
+                    >
+                      <div className="card-film__box-img modal">
+                        <img
+                          className="card-film__img"
+                          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                          alt={title}
+                        />
+                      </div>
+                      <div className="card-film__description">
+                        <h2 className="card-film__title">{title}</h2>
+                        <div className="card-film__inf">
+                          <p className="card-film__genre">{genre_ids}</p>
+                          <span className="year">{release_date}</span>
+                          <span className="rating">{vote_average}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                )
+              )}
+          </ul>
+        </div>
+      </main>
     </InfiniteScroll>
   );
 };
