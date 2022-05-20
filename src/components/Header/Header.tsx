@@ -18,17 +18,17 @@ const Header: React.FC = () => {
                   id="home"
                   className="site-nav__link-home link link__current"
                 >
-                  Пользователи{" "}
+                  Пользователи
                 </NavLink>
               </li>
               <li className="site-nav__item">
-                <a
+                <NavLink
+                  to="/favoriteFilms"
                   id="library"
                   className="site-nav__link-library link"
-                  href="#"
                 >
                   My Favorite
-                </a>
+                </NavLink>
               </li>
             </ul>
           </nav>
