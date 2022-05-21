@@ -26,19 +26,3 @@ export const filmApi = {
     });
   },
 };
-
-// Список самых популярных фильмов на сегодня для создания коллекции на главной странице.
-/* export function popularFilms() {
-  return fetchApi(`${BASE_URL}/movie/popular?api_key=${KEY}&page=1`);
-} */
-
-/* export async function addFilms(page: number) {
-  return await fetchApi(
-    `${BASE_URL}/movie/popular?api_key=${KEY}&page=${page}`
-  );
-}
-
-// запрос полной информации о фильме для страницы кинофильма.
-export function movieInformation(movieId: number) {
-  return fetchApi(`${BASE_URL}/movie/${movieId}?api_key=${KEY}`);
-} */

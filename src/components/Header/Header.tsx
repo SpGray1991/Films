@@ -1,8 +1,11 @@
 import React from "react";
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const Header: React.FC = () => {
+  const { favFilms } = useTypedSelector((state) => state.favFilms);
+  const counterFavFilms = favFilms.length;
   return (
     <div>
       <header className="header header-shadow">
@@ -27,7 +30,7 @@ const Header: React.FC = () => {
                   id="library"
                   className="site-nav__link-library link"
                 >
-                  My Favorite
+                  My Favorite {counterFavFilms}
                 </NavLink>
               </li>
             </ul>

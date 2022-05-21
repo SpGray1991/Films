@@ -10,7 +10,6 @@ const FavFilms: React.FC = () => {
 
   return (
     <main className="content">
-      1244444444445
       <div className="container wrapper-films" id="searchMain">
         <ul className="movie-list">
           {favFilms &&
