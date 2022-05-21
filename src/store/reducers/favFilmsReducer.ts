@@ -21,8 +21,6 @@ export const favFilmsReducer = (
       };
 
     case favFilmsActionTypes.ADD_FAV_FILM:
-      /* const filmsFromState = state.favFilms;
-      filmsFromState.push(...action.payload); */
       return { ...state, favFilms: [...state.favFilms, action.payload] };
 
     case favFilmsActionTypes.DEL_FAV_FILM:

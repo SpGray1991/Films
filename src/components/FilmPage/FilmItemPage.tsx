@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { filmApi } from "../../api/api";
-import { IMovie } from "../../types/Film";
+import { IMovie } from "../../types/FilmType";
 import "./FilmItemPage.scss";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";

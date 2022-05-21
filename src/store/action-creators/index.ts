@@ -1,5 +1,5 @@
-import * as FilmActionCreators from "./film";
-import * as favFilmActionCreators from "./favFilm";
+import * as FilmActionCreators from "./filmAC";
+import * as favFilmActionCreators from "./favFilmAC";
 
 export default {
   ...FilmActionCreators,

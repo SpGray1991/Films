@@ -1,5 +1,5 @@
 export interface FilmState {
-  films: any[];
+  films: IFilm[];
   loading: boolean;
   error: null | string;
 }
@@ -17,6 +17,13 @@ export interface IMovie {
   overview: string;
 }
 
+export interface IFilm {
+  id: number;
+  title: string;
+  poster_path: string;
+  vote_average: number;
+}
+
 export enum FilmActionTypes {
   API_FILMS = "API_FILMS",
   API_FILMS_SUCCESS = "API_FILMS_SUCCESS",
@@ -30,12 +37,12 @@ interface ApiFilmAction {
 
 interface SetFilmAction {
   type: FilmActionTypes.SET_FILMS;
-  payload: any[];
+  payload: IFilm[];
 }
 
 interface ApiFilmSuccessAction {
   type: FilmActionTypes.API_FILMS_SUCCESS;
-  payload: any[];
+  payload: IFilm[];
 }
 
 interface ApiFilmErrorAction {

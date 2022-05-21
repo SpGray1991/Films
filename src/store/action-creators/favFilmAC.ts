@@ -4,14 +4,9 @@ import { filmApi } from "../../api/api";
 
 export const addFavFilmAC =
   (movieId: number) => async (dispatch: Dispatch<favFilmsAction>) => {
-    /* const state = getState().favFilms;
-    console.log(state); */
     try {
       const response = await filmApi.movieInformation(movieId);
-
-      /*      const filmId = state.includes(response.id);
-      console.log(filmId);
- */
+      console.log("Fav", response);
       dispatch({
         type: favFilmsActionTypes.ADD_FAV_FILM,
         payload: response,

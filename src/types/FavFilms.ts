@@ -3,13 +3,6 @@ export interface favFilmsState {
   error: null | string;
 }
 
-/* export interface IMovie {
-  id: number;
-  title: string;
-  poster_path: string;
-  release_date: string;
-} */
-
 export enum favFilmsActionTypes {
   FAV_API_FILMS_ERROR = "FAV_API_FILMS_ERROR",
   ADD_FAV_FILM = "ADD_FAV_FILM",

@@ -18,8 +18,7 @@ const FavFilms: React.FC = () => {
                 title,
                 id,
                 poster_path,
-                genre_ids,
-                release_date,
+
                 vote_average,
               }) => (
                 <li className="card-film card-film_scale" key={id}>
@@ -38,8 +37,6 @@ const FavFilms: React.FC = () => {
                     <div className="card-film__description">
                       <h2 className="card-film__title">{title}</h2>
                       <div className="card-film__inf">
-                        <p className="card-film__genre">{genre_ids}</p>
-                        <span className="year">{release_date}</span>
                         <span className="rating">{vote_average}</span>
                       </div>
                     </div>

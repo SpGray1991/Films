@@ -1,4 +1,4 @@
-import { FilmAction, FilmActionTypes, FilmState } from "../../types/Film";
+import { FilmAction, FilmActionTypes, FilmState } from "../../types/FilmType";
 
 const initialState: FilmState = {
   films: [],
@@ -29,9 +29,7 @@ export const filmReducer = (
       };
 
     case FilmActionTypes.SET_FILMS:
-      const filmsFromState = state.films;
-      filmsFromState.push(...action.payload);
-      return { ...state };
+      return { ...state, films: [...state.films, ...action.payload] };
 
     default:
       return state;
