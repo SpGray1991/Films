@@ -1,9 +1,3 @@
-export interface FilmState {
-  films: IFilm[];
-  loading: boolean;
-  error: null | string;
-}
-
 export interface IMovie {
   id: number;
   title: string;
@@ -22,6 +16,12 @@ export interface IFilm {
   title: string;
   poster_path: string;
   vote_average: number;
+}
+
+export interface FilmState {
+  films: IFilm[];
+  loading: boolean;
+  error: null | string;
 }
 
 export enum FilmActionTypes {

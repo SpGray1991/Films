@@ -6,7 +6,6 @@ export const addFavFilmAC =
   (movieId: number) => async (dispatch: Dispatch<favFilmsAction>) => {
     try {
       const response = await filmApi.movieInformation(movieId);
-      console.log("Fav", response);
       dispatch({
         type: favFilmsActionTypes.ADD_FAV_FILM,
         payload: response,

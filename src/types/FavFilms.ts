@@ -1,5 +1,7 @@
+import { IFilm } from "./FilmType";
+
 export interface favFilmsState {
-  favFilms: any[];
+  favFilms: IFilm[];
   error: null | string;
 }
 
@@ -11,7 +13,7 @@ export enum favFilmsActionTypes {
 
 interface AddFavFilmAction {
   type: favFilmsActionTypes.ADD_FAV_FILM;
-  payload: any[];
+  payload: IFilm;
 }
 
 interface DelFavFilmAction {
