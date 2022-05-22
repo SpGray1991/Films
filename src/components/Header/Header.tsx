@@ -9,27 +9,16 @@ const Header: React.FC = () => {
   return (
     <div>
       <header className="header header-shadow">
-        <div className="header-nav container">
+        <div className="header-nav">
           <nav className="main-nav">
-            <a className="logo link" href="./index.html">
-              <span className="title">MovieDB</span>
-            </a>
-            <ul className="site__nav list">
+            <ul className="site__nav">
               <li className="site-nav__item">
-                <NavLink
-                  to="/films"
-                  id="home"
-                  className="site-nav__link-home link link__current"
-                >
-                  Пользователи
+                <NavLink to="/films" className=" link">
+                  MovieDB
                 </NavLink>
               </li>
               <li className="site-nav__item">
-                <NavLink
-                  to="/favoriteFilms"
-                  id="library"
-                  className="site-nav__link-library link"
-                >
+                <NavLink to="/favoriteFilms" className=" link">
                   My Favorite {counterFavFilms}
                 </NavLink>
               </li>
