@@ -1,5 +1,5 @@
 import React from "react";
-import "./FavFilms.scss";
+/* import "./FavFilms.scss"; */
 import { Link } from "react-router-dom";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 

@@ -36,8 +36,6 @@ $w-mobile: 320px;
 
 .container {
   width: 100%;
-  padding: 0 20px;
-  margin: 0;
 
   @media screen and (min-width: $w-mobile) {
     width: $w-mobile;
@@ -46,13 +44,11 @@ $w-mobile: 320px;
   }
 
   @media screen and (min-width: $w-tablet) {
-    padding: 0 75px;
     width: $w-tablet;
   }
 
   @media screen and (min-width: $w-desctop) {
     width: $w-desctop;
-    padding: 0 70px;
   }
 }
 
@@ -63,10 +59,17 @@ $w-mobile: 320px;
   position: relative;
 }
 
+ul {
+  padding: 0;
+  list-style: none;
+}
+
 .movie-list {
   @media (min-width: $w-tablet) {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+
     // margin: -15px;
   }
 }
@@ -86,6 +89,8 @@ $w-mobile: 320px;
     max-width: 280px;
     &:not(:last-child) {
       margin-bottom: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
     }
   }
 

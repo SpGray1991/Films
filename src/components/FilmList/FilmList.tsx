@@ -49,7 +49,7 @@ const FilmList: React.FC = () => {
       }
     >
       <main className="content">
-        <div className="container wrapper-films" id="searchMain">
+        <div className="container">
           <ul className="movie-list">
             {films &&
               films.map(({ title, id, poster_path, vote_average }) => (
