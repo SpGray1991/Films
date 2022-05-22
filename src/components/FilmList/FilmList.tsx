@@ -5,6 +5,7 @@ import "./FilmList.scss";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { filmApi } from "../../api/api";
 import { Link } from "react-router-dom";
+import MovieCard from "../MovieCard/MovieCard";
 
 const FilmList: React.FC = () => {
   const { films, error, loading } = useTypedSelector((state) => state.film);
@@ -52,28 +53,13 @@ const FilmList: React.FC = () => {
         <div className="container">
           <ul className="movie-list">
             {films &&
-              films.map(({ title, id, poster_path, vote_average }) => (
-                <li className="card-film card-film_scale" key={id}>
-                  <Link
-                    to={{
-                      pathname: `/films/${id}`,
-                    }}
-                  >
-                    <div className="card-film__box-img modal">
-                      <img
-                        className="card-film__img"
-                        src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                        alt={title}
-                      />
-                    </div>
-                    <div className="card-film__description">
-                      <h2 className="card-film__title">{title}</h2>
-                      <div className="card-film__inf">
-                        <span className="rating">{vote_average}</span>
-                      </div>
-                    </div>
-                  </Link>
-                </li>
+              films.map(({ title, id, vote_average, poster_path }) => (
+                <MovieCard
+                  title={title}
+                  id={id}
+                  poster_path={poster_path}
+                  vote_average={vote_average}
+                />
               ))}
           </ul>
         </div>
