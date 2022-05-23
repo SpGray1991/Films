@@ -6,7 +6,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { filmApi } from "../../api/api";
 import MovieCard from "../MovieCard/MovieCard";
 
-const FilmList: React.FC = () => {
+const FilmListPage: React.FC = () => {
   const { films, error, loading } = useTypedSelector((state) => state.film);
 
   const [hasMore, setHasMore] = useState(true);
@@ -67,4 +67,4 @@ const FilmList: React.FC = () => {
   );
 };
 
-export default FilmList;
+export default FilmListPage;
