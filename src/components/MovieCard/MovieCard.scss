@@ -1,23 +1,10 @@
 $primary-color: #000000;
-$secondary-color: #8c8c8c;
 $third-color: #ff6b08;
-$front-color: #ffffff;
-$action-message-color: #ff001b;
-$bg-color-futer: #f7f7f7;
 
-$header-gradient-color: rgba(0, 0, 0, 0.56);
-// Fonts
 $font-primary: "Roboto", sans-serif;
 
-// Weight
-$fw-regular: 400;
-$fw-medium: 500;
-$line-height: 1.16;
-
-// Width-container
 $w-desktop: 1024px;
 $w-tablet: 768px;
-$w-mobile: 320px;
 
 .card-film {
   @media (min-width: $w-desktop) {
@@ -42,6 +29,16 @@ $w-mobile: 320px;
   height: auto;
 }
 
+.link-to-film {
+  text-decoration: none;
+}
+
+.card-film__box-img {
+  display: flex;
+  height: 450px;
+  margin-bottom: 10px;
+}
+
 .card-film__img {
   background-image: url(../../images/cinema.jpg);
   background-position: center;
@@ -53,35 +50,24 @@ $w-mobile: 320px;
   border-radius: 5px;
 }
 
+.card-film__description {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5px;
+}
+
 .card-film__title {
   text-transform: uppercase;
   font-family: $font-primary;
   font-size: inherit;
-  font-weight: inherit;
-
+  font-weight: bold;
   line-height: 1.33;
-}
-
-.card-film__genre {
-  color: $third-color;
-  border-right: 1px solid $third-color;
-  padding-right: 4px;
-}
-
-.card-film__box-img {
-  display: flex;
-  height: 450px;
-  margin-bottom: 10px;
+  color: $primary-color;
 }
 
 .card-film__inf {
   display: flex;
   align-items: center;
-}
-
-.year {
-  padding-left: 5px;
-  color: $third-color;
 }
 
 .rating {
@@ -96,7 +82,7 @@ $w-mobile: 320px;
   line-height: 1.17;
   text-transform: uppercase;
   font-family: $font-primary;
-
+  text-decoration: none;
   background-color: $third-color;
   color: white;
   border-radius: 5px;

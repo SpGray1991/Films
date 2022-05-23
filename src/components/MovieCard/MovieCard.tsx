@@ -16,6 +16,7 @@ function MovieCard({ title, id, poster_path, vote_average }: MovieCardProps) {
         to={{
           pathname: `/films/${id}`,
         }}
+        className="link-to-film"
       >
         <div className="card-film__box-img">
           <img
