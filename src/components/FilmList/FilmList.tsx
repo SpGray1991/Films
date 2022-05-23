@@ -4,7 +4,6 @@ import { useActions } from "../../hooks/useActions";
 import "./FilmList.scss";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { filmApi } from "../../api/api";
-import { Link } from "react-router-dom";
 import MovieCard from "../MovieCard/MovieCard";
 
 const FilmList: React.FC = () => {

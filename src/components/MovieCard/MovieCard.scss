@@ -19,11 +19,9 @@ $w-tablet: 768px;
 
   @media (max-width: 767px) {
     max-width: 280px;
-    &:not(:last-child) {
-      margin-bottom: 20px;
-      margin-left: 20px;
-      margin-right: 20px;
-    }
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   height: auto;
