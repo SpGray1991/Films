@@ -1,21 +1,10 @@
-/* фиксированый header с тенью*/
 $primary-color: #000000;
-$secondary-color: #8c8c8c;
+
 $third-color: #ff6b08;
 $front-color: #ffffff;
-$action-message-color: #ff001b;
-$bg-color-futer: #f7f7f7;
 
 $header-gradient-color: rgba(0, 0, 0, 0.56);
-// Fonts
-$font-primary: "Roboto", sans-serif;
 
-// Weight
-$fw-regular: 400;
-$fw-medium: 500;
-$line-height: 1.16;
-
-// Width-container
 $w-desktop: 1024px;
 $w-tablet: 768px;
 $w-mobile: 320px;
@@ -96,6 +85,12 @@ $w-mobile: 320px;
   color: $front-color;
 }
 
+.active {
+  text-decoration: none;
+  cursor: pointer;
+  color: red;
+}
+
 .main-nav {
   text-align: center;
   display: flex;
@@ -119,4 +114,10 @@ $w-mobile: 320px;
 
 .site-nav__item:last-child {
   margin-left: 40px;
+}
+
+.counter {
+  font-weight: 900;
+  color: $third-color;
+  margin-left: 5px;
 }

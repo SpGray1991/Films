@@ -6,6 +6,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 const Header: React.FC = () => {
   const { favFilms } = useTypedSelector((state) => state.favFilms);
   const counterFavFilms = favFilms.length;
+
   return (
     <div>
       <header className="header header-shadow">
@@ -13,13 +14,23 @@ const Header: React.FC = () => {
           <nav className="main-nav">
             <ul className="site__nav">
               <li className="site-nav__item">
-                <NavLink to="/films" className=" link">
+                <NavLink
+                  to="/films"
+                  className={(navData) =>
+                    navData.isActive ? "active" : "link"
+                  }
+                >
                   MovieDB
                 </NavLink>
               </li>
               <li className="site-nav__item">
-                <NavLink to="/favoriteFilms" className=" link">
-                  My Favorite {counterFavFilms}
+                <NavLink
+                  to="/favoriteFilms"
+                  className={(navData) =>
+                    navData.isActive ? "active" : "link"
+                  }
+                >
+                  My Favorite <span className="counter">{counterFavFilms}</span>
                 </NavLink>
               </li>
             </ul>
