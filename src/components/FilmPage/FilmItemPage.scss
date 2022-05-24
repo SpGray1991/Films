@@ -55,9 +55,13 @@ $w-mobile: 320px;
 }
 
 .movie_description {
-  width: auto;
   padding: 20px 20px 40px 20px;
   color: $primary-color;
+
+  @media (min-width: $w-desktop) {
+    max-width: 600px;
+  }
+
   @media screen and (min-width: $w-tablet) {
     width: auto;
   }
