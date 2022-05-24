@@ -2,7 +2,7 @@ import React from "react";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import MovieCard from "../MovieCard/MovieCard";
 
-const FavFilms: React.FC = () => {
+const FavFilmsPage: React.FC = () => {
   const { favFilms } = useTypedSelector((state) => state.favFilms);
 
   return (
@@ -16,6 +16,7 @@ const FavFilms: React.FC = () => {
                 id={id}
                 poster_path={poster_path}
                 vote_average={vote_average}
+                key={id}
               />
             ))}
         </ul>
@@ -24,4 +25,4 @@ const FavFilms: React.FC = () => {
   );
 };
 
-export default FavFilms;
+export default FavFilmsPage;

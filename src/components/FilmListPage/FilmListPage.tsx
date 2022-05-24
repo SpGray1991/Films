@@ -5,6 +5,7 @@ import "./FilmList.scss";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { filmApi } from "../../api/api";
 import MovieCard from "../MovieCard/MovieCard";
+import Preloader from "../Preloader/Preloader";
 
 const FilmListPage: React.FC = () => {
   const { films, error, loading } = useTypedSelector((state) => state.film);
@@ -30,7 +31,7 @@ const FilmListPage: React.FC = () => {
   };
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Preloader />;
   }
   if (error) {
     return <h1>{error}</h1>;
@@ -41,7 +42,7 @@ const FilmListPage: React.FC = () => {
       dataLength={films.length}
       next={fetchData}
       hasMore={hasMore}
-      loader={<h4>Loading...</h4>}
+      loader={<Preloader />}
       endMessage={
         <p style={{ textAlign: "center" }}>
           <b>You have seen it all</b>
@@ -58,6 +59,7 @@ const FilmListPage: React.FC = () => {
                   id={id}
                   poster_path={poster_path}
                   vote_average={vote_average}
+                  key={id}
                 />
               ))}
           </ul>

@@ -38,7 +38,7 @@ const FilmItemPage: FC = () => {
   };
   return (
     <>
-      <div className="wrapper-item-film">
+      <div className="wrapper-item-film" key={film?.id}>
         <div className="poster-container">
           <div className="movie-box-img">
             <img
@@ -72,7 +72,9 @@ const FilmItemPage: FC = () => {
                 <td>
                   <ul>
                     {film?.genres &&
-                      film?.genres.map(({ name }) => <li>{name}</li>)}
+                      film?.genres.map(({ name, id }) => (
+                        <li key={id}>{name}</li>
+                      ))}
                   </ul>
                 </td>
               </tr>
