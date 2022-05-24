@@ -10,9 +10,9 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/films/*" element={<FilmListPage />} />
+        <Route path="/*" element={<FilmListPage />} />
         <Route path="/favoriteFilms/*" element={<FavFilms />} />
-        <Route path="/films/:id" element={<FilmItemPage />} />
+        <Route path="/:id" element={<FilmItemPage />} />
       </Routes>
     </BrowserRouter>
   );

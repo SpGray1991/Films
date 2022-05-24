@@ -7,7 +7,7 @@ function MovieCard({ title, id, poster_path, vote_average }: MovieCardProps) {
     <li className="card-film card-film_scale" key={id}>
       <Link
         to={{
-          pathname: `/films/${id}`,
+          pathname: `/${id}`,
         }}
         className="link-to-film"
       >

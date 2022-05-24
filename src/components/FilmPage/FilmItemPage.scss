@@ -9,6 +9,9 @@ $w-mobile: 320px;
 
 .wrapper-item-film {
   display: block;
+  @media (min-width: $w-desktop) {
+    justify-content: center;
+  }
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -17,12 +20,14 @@ $w-mobile: 320px;
 
 .poster-container {
   @media (min-width: $w-desktop) {
-    flex-basis: calc(100% / 3 - 30px);
+    min-width: 300px;
+    max-width: 300px;
     margin: 15px;
   }
 
   @media (min-width: $w-tablet) and (max-width: 1023px) {
-    flex-basis: calc(100% / 2 - 30px);
+    min-width: 250px;
+    max-width: 250px;
     margin: 15px;
   }
 
@@ -31,8 +36,6 @@ $w-mobile: 320px;
     margin-left: 20px;
     margin-right: 20px;
   }
-
-  height: auto;
 }
 
 .movie-box-img {

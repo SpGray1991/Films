@@ -15,7 +15,7 @@ const Header: React.FC = () => {
             <ul className="site__nav">
               <li className="site-nav__item">
                 <NavLink
-                  to="/films"
+                  to="/"
                   className={(navData) =>
                     navData.isActive ? "active" : "link"
                   }
