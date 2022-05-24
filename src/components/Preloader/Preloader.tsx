@@ -1,9 +1,9 @@
 import preloader from "../../images/loader.svg";
 
-let Preloader = () => {
+const Preloader: React.FC = () => {
   return (
     <div>
-      <img src={preloader} />
+      <img src={preloader} alt="preloader" />
     </div>
   );
 };

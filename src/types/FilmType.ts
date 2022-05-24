@@ -4,11 +4,9 @@ export interface IMovie {
   poster_path: string;
   release_date: string;
   vote_average: number;
-  vote_count: number;
-  popularity: number;
-  original_title: string;
   genres: any[];
   overview: string;
+  tagline: string;
 }
 
 export interface IFilm {

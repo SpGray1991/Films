@@ -9,79 +9,87 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 const FilmItemPage: FC = () => {
   const { favFilms } = useTypedSelector((state) => state.favFilms);
   const movieId = useParams();
-  const test = Number(movieId.id);
+  const ID = Number(movieId.id);
 
   const [movie, setMovie] = useState<IMovie | null>(null);
 
-  const film = movie;
+  const filmPoster = movie?.poster_path
+    ? `https://image.tmdb.org/t/p/w500${movie?.poster_path}`
+    : "../../images/cinema.jpg";
 
   useEffect(() => {
     filmApi
-      .movieInformation(test)
+      .movieInformation(ID)
       .then(setMovie)
       .catch((error) => console.log(error));
-  }, [test]);
+  }, [ID]);
 
   const { addFavFilmAC, delFavFilmAC } = useActions();
 
   const handleSubmitButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    if (!favFilms.some((f, index) => f.id === test)) {
-      addFavFilmAC(test);
+    if (!favFilms.some((f, index) => f.id === ID)) {
+      addFavFilmAC(ID);
     }
   };
 
   const handleSubmitButtonDel = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    delFavFilmAC(test);
+    delFavFilmAC(ID);
   };
   return (
     <>
-      <div className="wrapper-item-film" key={film?.id}>
+      <div className="wrapper-item-film" key={movie?.id}>
         <div className="poster-container">
           <div className="movie-box-img">
             <img
               className="movie_img"
-              src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
-              alt={film?.title}
+              src={filmPoster}
+              alt={movie?.title}
             ></img>
           </div>
         </div>
         <div className="movie_description">
           <div className="table">
             <table className="table-list">
-              <h2 className="movie_name">{film?.title}</h2>
-              <tr>
-                <td className="table_name">Vote / Votes</td>
-                <td>
-                  <span className="table_vote">{film?.vote_average}</span> /{" "}
-                  {film?.vote_count}
-                </td>
-              </tr>
-              <tr>
-                <td className="table_name">Popularity</td>
-                <td>{film?.popularity}</td>
-              </tr>
-              <tr>
-                <td className="table_name">Original Title</td>
-                <td>{film?.original_title}</td>
-              </tr>
-              <tr>
-                <td className="table_name">Genre</td>
-                <td>
-                  <ul>
-                    {film?.genres &&
-                      film?.genres.map(({ name, id }) => (
-                        <li key={id}>{name}</li>
-                      ))}
-                  </ul>
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>
+                    <h2 className="movie_name">{movie?.title}</h2>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="table_name">Vote</td>
+                  <td>
+                    <span className="table_vote">{movie?.vote_average}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="table_name">Release date</td>
+                  <td>{movie?.release_date}</td>
+                </tr>
+                <tr>
+                  <td className="table_name">Tagline</td>
+                  <td>{movie?.tagline}</td>
+                </tr>
+                <tr>
+                  <td className="table_name">Genre</td>
+                  <td>
+                    <ul>
+                      {movie?.genres &&
+                        movie?.genres.map(({ name, id }) => (
+                          <li key={id}>{name}</li>
+                        ))}
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
           <p className="about">About</p>
-          <p className="description-film">{film?.overview}</p>
+          <p className="description-film">{movie?.overview}</p>
           <div className="buttons">
             <button className="movie_btn" onClick={handleSubmitButton}>
               add to favorite
