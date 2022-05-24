@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
-
 import "./MovieCard.scss";
-
-interface MovieCardProps {
-  title: string;
-  id: number;
-  poster_path: string;
-  vote_average: number;
-}
+import { MovieCardProps } from "../../types/FilmType";
 
 function MovieCard({ title, id, poster_path, vote_average }: MovieCardProps) {
   return (

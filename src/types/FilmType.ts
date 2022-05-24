@@ -16,6 +16,13 @@ export interface IFilm {
   vote_average: number;
 }
 
+export interface MovieCardProps {
+  title: string;
+  id: number;
+  poster_path: string;
+  vote_average: number;
+}
+
 export interface FilmState {
   films: IFilm[];
   loading: boolean;
