@@ -56,7 +56,7 @@ $w-mobile: 320px;
 
 .movie_description {
   width: auto;
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 40px 20px;
   color: $primary-color;
   @media screen and (min-width: $w-tablet) {
     width: auto;
