@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   return (
     <div>
       <header className="header header-shadow">
-        <div className="header-nav">
+        <div className="header-nav container">
           <nav className="main-nav">
             <ul className="site__nav">
               <li className="site-nav__item">

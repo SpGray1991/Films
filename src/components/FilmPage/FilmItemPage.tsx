@@ -40,11 +40,13 @@ const FilmItemPage: FC = () => {
     <>
       <div className="wrapper-item-film">
         <div className="poster-container">
-          <img
-            className="movie_img"
-            src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
-            alt={film?.title}
-          ></img>
+          <div className="movie-box-img">
+            <img
+              className="movie_img"
+              src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
+              alt={film?.title}
+            ></img>
+          </div>
         </div>
         <div className="movie_description">
           <div className="table">
@@ -79,17 +81,11 @@ const FilmItemPage: FC = () => {
           <p className="about">About</p>
           <p className="description-film">{film?.overview}</p>
           <div className="buttons">
-            <button
-              className="movie_btn modal_btn_wotched"
-              onClick={handleSubmitButton}
-            >
-              add to Watched
+            <button className="movie_btn" onClick={handleSubmitButton}>
+              add to favorite
             </button>
-            <button
-              className="movie_btn modal_btn_queue"
-              onClick={handleSubmitButtonDel}
-            >
-              Del
+            <button className="movie_btn" onClick={handleSubmitButtonDel}>
+              del from favorite
             </button>
           </div>
         </div>
